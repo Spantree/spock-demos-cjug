@@ -45,16 +45,16 @@ class FastAndSlowSpec extends Specification {
 
     }
 
-    def "HashMap accepts null key"() {
-        setup:
-        def map = new HashMap()
+def "HashMap accepts null key"() {
+    setup:
+    def map = new HashMap()
 
-        when:
-        map.put(null, "elem")
+    when:
+    map.put(null, "elem")
 
-        then:
-        notThrown(NullPointerException)
-    }
+    then:
+    notThrown(NullPointerException)
+}
 
     @Slow
     def "events are published to all subscribers"() {
@@ -82,7 +82,6 @@ class FastAndSlowSpec extends Specification {
         expect:
         Math.max(1, 2) == 2
     }
-
 }
 
 

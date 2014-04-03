@@ -56,7 +56,7 @@ class WhereBlockSpec extends Specification {
         99    | 1     || 100
     }
 
-    def "custom data provider version"() {
+    def "custom data provider version: #a + #b = #c"() {
 
         expect:
         a + b == c

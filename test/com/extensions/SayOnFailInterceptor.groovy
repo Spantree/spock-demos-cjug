@@ -25,7 +25,7 @@ class SayOnFailInterceptor implements IMethodInterceptor {
         } catch (Throwable t) {
             def methodName = featureInfo.getFeatureMethod().name
             def voiceName = sayOnError.voice()
-            def sayText = sayOnError.value() ?: "Danger! Failure for: $methodName"
+            def sayText = "Danger! Failure for: $methodName"
             try {
                 "say -v $voiceName $sayText".execute()
             } catch (IOException ex) {}

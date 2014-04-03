@@ -7,7 +7,7 @@ import spock.lang.Stepwise
  *
  * @author ksipe
  */
-@Stepwise
+//@Stepwise
 class StepwiseSpec extends Specification {
 
     /**
@@ -20,7 +20,7 @@ class StepwiseSpec extends Specification {
     }
 
     def "step 2"() {
-        expect: true   // if you swap this with the false, you will see that step 2 fails and step 3 is ignored
+        expect: false   // if you swap this with the false, you will see that step 2 fails and step 3 is ignored
 //        expect: false
     }
 

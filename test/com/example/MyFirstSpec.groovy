@@ -131,5 +131,3 @@ class MyFirstSpec extends Specification {
     }
 
 }
-
-

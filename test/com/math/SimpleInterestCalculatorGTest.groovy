@@ -24,5 +24,4 @@ class SimpleInterestCalculatorGTest extends GroovyTestCase {
             interestCalculator.calculate(-10000, 2)
         }
     }
-
 }

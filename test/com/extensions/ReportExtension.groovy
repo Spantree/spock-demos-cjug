@@ -1,5 +1,7 @@
 package com.extensions
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.spockframework.runtime.AbstractRunListener
 import org.spockframework.runtime.extension.AbstractAnnotationDrivenExtension
 import org.spockframework.runtime.model.FeatureInfo
@@ -11,16 +13,17 @@ import org.spockframework.runtime.model.SpecInfo
  *
  */
 class ReportExtension extends AbstractAnnotationDrivenExtension<Report> {
-
     @Override
     void visitSpecAnnotation(Report annotation, SpecInfo spec) {
         spec.addListener(new AbstractRunListener() {
+            Logger log = LoggerFactory.getLogger(spec.filename.replaceAll(/\.groovy$/, ''))
             @Override
             void afterFeature(FeatureInfo feature) {
-                println "feature details: ${feature.name}"
-                for (block in feature.blocks) {
+                log.info "Feature: ${feature.name}"
+                feature.blocks.eachWithIndex { block, i ->
+                    log.info " ${i} ${block.kind}"
                     for (text in block.texts) {
-                        println text
+                        log.info "  ${text}"
                     }
                 }
             }
